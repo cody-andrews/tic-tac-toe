@@ -42,6 +42,8 @@ h1  {
 .game-square    {
     background-color: var(--grey-orange);
     color: var(--dark-cyan);
+    width: 132px;
+    height: 132px;
     font-size: 100px;
     text-align: center;
     border: solid 1px;
