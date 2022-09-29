@@ -29,18 +29,18 @@ body    {
 
 h1  {
     padding: 50px;
-    font-size: 50px;
+    font-size: 70px;
 }
 #main-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 0px;
-    padding: 50pxpx;
+    padding: 25px;
     width: 400px;
     height: 400px;
 }
 
-#restart-button {
+.restart-button {
     background-color: var(--dark-cyan);
     margin: 30px;
     padding: 10px 20px;
@@ -67,11 +67,14 @@ h1  {
 }
 
 #current-player {
+    font-size: 25px;
     display: flex;
+    text-align: center;   
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: 60px;
+
     /* background-color: rgb(70, 70, 70); */
 }
 
