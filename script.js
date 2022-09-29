@@ -32,6 +32,9 @@ var game = (() => {
     
     const playerDisplay = document.getElementById('current-player');
 
+    let winner = false;
+
+
     //generate players
     let player1 = newPlayer('Player One', 'X', true);
     let player2 = newPlayer('Player Two', 'O', false);
@@ -51,36 +54,50 @@ var game = (() => {
 
     function checkGameBoard() {
     
-        let winner = false;
-
+        let playerOneWins = false;
+        let playerTwoWins = false;
+        
         winningCombo.forEach((item, index) => {
+           
 
-            if (gameBoard.board[item[0]] === 'X' && gameBoard.board[item[1]] === 'X' && gameBoard.board[item[2]] === 'X') {
-             playerDisplay.innerHTML = 'Player One Wins!!!'
-             playerDisplay.insertAdjacentText('afterend', 'Refresh to Play Again!')
-
+        if (gameBoard.board[item[0]] === 'X' && gameBoard.board[item[1]] === 'X' && gameBoard.board[item[2]] === 'X') {
+             playerOneWins = true;
              winner = true;
-             console.log('Hello')
         }
 
         else if (gameBoard.board[item[0]] === 'O' && gameBoard.board[item[1]] === 'O' && gameBoard.board[item[2]] === 'O')  {
-            playerDisplay.innerHTML = 'Player Two Wins!!!'
+            playerTwoWins = true;
             winner = true;
-            console.log('Hello 2')
         }
-       
+
          })
-         return winner; 
+
+         if (playerOneWins === true)    {
+            playerDisplay.innerHTML = 'Player One Wins!!! <br> Refresh to play again'
+         }
+
+         else if (playerTwoWins === true)    {
+            playerDisplay.innerHTML = 'Player Two Wins!!! <br> Refresh to play again'
+         }
+
+       
+
     }
-   
+
     
     addEventListener('click', (e) =>  {
         let targetTile = e.target; 
-        
-        if (e.target.className === 'game-square' && player1.turn === true && e.target.innerHTML != 'X' && e.target.innerHTML != 'O'){
+
+        console.log(winner)
+
+        if(winner === true)    {
+            return
+        }
+
+        else if (e.target.className === 'game-square' && player1.turn === true && e.target.innerHTML != 'X' && e.target.innerHTML != 'O'){
              // update div in html with player marker
             e.target.innerHTML = 'X';
-           
+
             //update board array so winning combo can be checked.
             gameBoard.board[e.target.dataset.tile] = 'X';
            

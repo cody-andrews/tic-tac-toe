@@ -11,6 +11,7 @@
     padding: 0;
 }
 
+
 html    {
     position: relative;
     min-height: 100%;
@@ -37,6 +38,16 @@ h1  {
     padding: 50pxpx;
     width: 400px;
     height: 400px;
+}
+
+#restart-button {
+    background-color: var(--dark-cyan);
+    margin: 30px;
+    padding: 10px 20px;
+    font-size: 50px;
+    border-radius: 7px;
+    border: 3px solid black;
+    cursor: pointer;
 }
 
 .game-square    {
